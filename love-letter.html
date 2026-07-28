@@ -5,19 +5,17 @@
 
 <head>
 
-
 <meta charset="UTF-8">
-
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 <title>
-Love Letter 💌
+Our Love Letter 💌
 </title>
 
 
-<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="style.css">
 
 
 </head>
@@ -27,12 +25,25 @@ Love Letter 💌
 <body>
 
 
+<div id="loader">
+
+<div class="loader-heart">
+💍
+</div>
+
+<p>
+Preparing our story...
+❤️
+</p>
+
+</div>
+
+
+
 
 <audio id="bgMusic" autoplay loop>
 
-
 <source src="./audio/bgm.mp3" type="audio/mp3">
-
 
 </audio>
 
@@ -49,12 +60,24 @@ Love Letter 💌
 
 
 
+
+
+<h1>
+A Letter From My Heart 💌
+</h1>
+
+
+
+
+
+
 <div class="letter-container">
 
 
 
-<!-- Closed Envelope -->
 
+
+<!-- Closed Envelope -->
 
 <img
 
@@ -64,18 +87,17 @@ src="./images/envelope/envelope-closed.png"
 
 class="envelope"
 
-alt="Closed Love Letter">
+alt="Closed Envelope">
 
 
 
 
 
-<!-- Heart Sparkle Effect -->
+
+<div class="heart-animation">
 
 
 <img
-
-id="heartSparkle"
 
 src="./images/envelope/heart-sparkle.png"
 
@@ -84,18 +106,29 @@ class="heart-sparkle"
 alt="Heart Sparkle">
 
 
+<span>❤️</span>
+
+<span>💗</span>
+
+<span>✨</span>
+
+
+</div>
 
 
 
-<button
 
-onclick="openLetter()">
 
+
+
+<button onclick="openLetter()">
 
 💌 Open Letter
 
-
 </button>
+
+
+
 
 
 
@@ -106,77 +139,19 @@ onclick="openLetter()">
 
 
 
-<!-- Letter Content Hidden First -->
+
+
+
+<!-- Letter Content -->
 
 
 <div
+
 id="letterContent"
+
 class="letter-content hidden">
 
 
-<img
-
-src="./images/envelope/letter-open.png"
-
-class="open-letter">
-
-
-<div class="typing-text">
-
-
-<h1>
-My Love 💕
-</h1>
-
-
-<p id="loveText">
-
-</p>
-
-
-</div>
-
-
-
-
-<h2>
-I Love You
-</h2>
-
-
-
-<div class="languages">
-
-
-<p>🇹🇭 รักคุณ</p>
-
-<p>🇬🇧 I love you</p>
-
-<p>🇰🇷 사랑해</p>
-
-<p>🇯🇵 愛してる</p>
-
-<p>🇨🇳 我爱你</p>
-
-<p>🇮🇹 Ti amo</p>
-
-<p>🇫🇷 Je t'aime</p>
-
-<p>🇩🇪 Ich liebe dich</p>
-
-
-</div>
-
-
-
-<button onclick="goGift()">
-
-🎁 Secret Gift
-
-</button>
-
-
-</div>
 
 
 
@@ -192,28 +167,32 @@ alt="Open Letter">
 
 
 
-<h1>
-My Love 💕
-</h1>
+
+
+
+<div class="typing-text">
+
+
+
+<h2>
+My Love ❤️
+</h2>
 
 
 
 
-<p>
-
-Thank you for being my happiness.
-
-</p>
-
-
-
-<p>
-
-You are my favorite person,
-my safe place,
-and my beautiful memory.
+<p id="loveText">
 
 </p>
+
+
+
+</div>
+
+
+
+
+
 
 
 
@@ -226,47 +205,51 @@ I Love You
 
 
 
-<div class="languages">
+
+
+
+
+<div class="languages fade-language">
 
 
 
 <p>
-🇹🇭 รักคุณ
+Thailand — รักคุณ ❤️
 </p>
 
 
 <p>
-🇬🇧 I love you
+English — I love you ❤️
 </p>
 
 
 <p>
-🇰🇷 사랑해
+Korean — 사랑해 ❤️
 </p>
 
 
 <p>
-🇯🇵 愛してる
+Japanese — 愛してる ❤️
 </p>
 
 
 <p>
-🇨🇳 我爱你
+Chinese — 我爱你 ❤️
 </p>
 
 
 <p>
-🇮🇹 Ti amo
+Italian — Ti amo ❤️
 </p>
 
 
 <p>
-🇫🇷 Je t'aime
+French — Je t'aime ❤️
 </p>
 
 
 <p>
-🇩🇪 Ich liebe dich
+German — Ich liebe dich ❤️
 </p>
 
 
@@ -277,15 +260,11 @@ I Love You
 
 
 
-<button
-
-onclick="goGift()">
 
 
+<button onclick="goGift()">
 
 🎁 Secret Gift
-
-
 
 </button>
 
@@ -293,7 +272,11 @@ onclick="goGift()">
 
 
 
+
 </div>
+
+
+
 
 
 
@@ -303,7 +286,9 @@ onclick="goGift()">
 
 
 
-<script src="./script.js"></script>
+
+
+<script src="script.js"></script>
 
 
 

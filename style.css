@@ -1,15 +1,25 @@
-/* ===================================
+/* =====================================
    THE RING OF US
-   Romantic Interactive Website
-=================================== */
+   Premium Romantic Design
+===================================== */
 
 
 
 * {
 
-box-sizing: border-box;
 margin:0;
+
 padding:0;
+
+box-sizing:border-box;
+
+}
+
+
+
+html {
+
+scroll-behavior:smooth;
 
 }
 
@@ -17,56 +27,72 @@ padding:0;
 
 body {
 
-font-family:
-"Segoe UI",
-sans-serif;
 
 min-height:100vh;
 
-overflow-x:hidden;
+
+font-family:
+
+"Segoe UI",
+"Candara",
+sans-serif;
+
 
 background:
 
 linear-gradient(
 135deg,
 #fff1f7,
-#fff9f0,
-#fdf2ff
+#fff8ef,
+#f8efff
 );
+
 
 color:#6b4055;
 
-text-align:center;
+
+overflow-x:hidden;
+
 
 }
 
 
 
 
-/* =========================
-   Floating Objects
-========================= */
+/* =====================================
+   FLOATING ANIMATION
+===================================== */
 
 
 #floating-container {
 
+
 position:fixed;
 
-width:100%;
-
-height:100%;
 
 top:0;
 
+
 left:0;
+
+
+width:100%;
+
+
+height:100%;
+
 
 pointer-events:none;
 
+
 overflow:hidden;
 
-z-index:10;
+
+z-index:100;
+
 
 }
+
 
 
 
@@ -75,7 +101,9 @@ z-index:10;
 
 position:absolute;
 
-bottom:-50px;
+
+bottom:-80px;
+
 
 animation:
 
@@ -86,28 +114,36 @@ floatUp linear forwards;
 
 
 
+
 @keyframes floatUp {
 
 
 0% {
 
+
 transform:
+
 translateY(0)
 rotate(0deg);
 
+
 opacity:0;
+
 
 }
 
 
 20% {
 
+
 opacity:1;
+
 
 }
 
 
 100% {
+
 
 transform:
 
@@ -117,82 +153,20 @@ rotate(360deg);
 
 opacity:0;
 
-}
-
 
 }
-
-
-
-
-/* =========================
-   Buttons
-========================= */
-
-
-button {
-
-
-border:none;
-
-padding:
-
-15px 35px;
-
-
-border-radius:50px;
-
-
-background:
-
-linear-gradient(
-45deg,
-#ffb6d9,
-#ffc8a8
-);
-
-
-color:white;
-
-
-font-size:18px;
-
-
-cursor:pointer;
-
-
-margin-top:25px;
-
-
-box-shadow:
-
-0 10px 25px
-rgba(255,150,190,.35);
-
-
-transition:.3s;
 
 
 }
 
 
 
-button:hover {
-
-
-transform:
-
-translateY(-5px)
-scale(1.05);
-
-
-}
 
 
 
-/* =========================
-   Opening Page
-========================= */
+/* =====================================
+   ALL PAGES
+===================================== */
 
 
 .opening-page,
@@ -211,13 +185,16 @@ display:flex;
 flex-direction:column;
 
 
-align-items:center;
-
-
 justify-content:center;
 
 
+align-items:center;
+
+
 padding:30px;
+
+
+position:relative;
 
 
 }
@@ -226,10 +203,168 @@ padding:30px;
 
 
 
-.video-container {
+
+/* =====================================
+   TEXT
+===================================== */
 
 
-width:min(850px,90%);
+h1 {
+
+
+font-size:
+clamp(35px,6vw,60px);
+
+
+font-weight:700;
+
+
+margin-bottom:20px;
+
+
+background:
+linear-gradient(
+45deg,
+#e88cae,
+#d89b6a
+);
+
+
+background-clip:text;
+
+
+-webkit-background-clip:text;
+
+
+color:transparent;
+
+
+}
+
+
+
+
+h2 {
+
+
+margin:15px 0;
+
+
+font-size:30px;
+
+
+}
+
+
+
+
+p {
+
+
+font-size:20px;
+
+
+line-height:1.8;
+
+
+max-width:700px;
+
+
+margin:10px auto;
+
+
+}
+
+
+
+
+
+
+/* =====================================
+   BUTTON
+===================================== */
+
+
+button {
+
+
+border:none;
+
+
+padding:
+
+16px 40px;
+
+
+border-radius:50px;
+
+
+font-size:18px;
+
+
+cursor:pointer;
+
+
+color:white;
+
+
+background:
+
+linear-gradient(
+45deg,
+#f3a6c8,
+#f6c58d
+);
+
+
+box-shadow:
+
+0 15px 35px
+rgba(220,140,170,.35);
+
+
+transition:.4s;
+
+
+margin-top:25px;
+
+
+}
+
+
+
+button:hover {
+
+
+transform:
+
+translateY(-5px)
+scale(1.05);
+
+
+box-shadow:
+
+0 20px 45px
+rgba(220,140,170,.5);
+
+
+}
+
+
+
+
+
+
+/* =====================================
+   VIDEO
+===================================== */
+
+
+.video-container,
+.video-wrapper {
+
+
+width:min(900px,90%);
 
 
 border-radius:40px;
@@ -240,15 +375,19 @@ overflow:hidden;
 
 box-shadow:
 
-0 20px 50px
-rgba(200,130,170,.35);
+0 25px 60px
+rgba(180,120,150,.25);
+
+
+margin:30px;
 
 
 }
 
 
 
-.video-container video {
+.video-container video,
+.video-wrapper video {
 
 
 width:100%;
@@ -263,55 +402,11 @@ display:block;
 
 
 
-.opening-content {
 
 
-margin-top:30px;
-
-
-}
-
-
-
-
-h1 {
-
-
-font-size:
-
-clamp(35px,5vw,55px);
-
-
-margin-bottom:20px;
-
-
-font-weight:700;
-
-
-}
-
-
-
-
-p {
-
-
-font-size:20px;
-
-
-line-height:1.7;
-
-
-margin:10px;
-
-
-}
-
-
-
-/* =========================
- Ring Selection
-========================= */
+/* =====================================
+   RING CARD
+===================================== */
 
 
 .ring-choice {
@@ -320,10 +415,10 @@ margin:10px;
 display:flex;
 
 
-gap:40px;
-
-
 justify-content:center;
+
+
+gap:40px;
 
 
 flex-wrap:wrap;
@@ -336,13 +431,17 @@ margin-top:40px;
 
 
 
+
 .ring-card {
 
 
-width:320px;
+width:330px;
 
 
-padding:30px;
+padding:35px;
+
+
+border-radius:40px;
 
 
 background:
@@ -350,19 +449,23 @@ background:
 rgba(255,255,255,.75);
 
 
-border-radius:35px;
+backdrop-filter:
+blur(15px);
+
+-webkit-backdrop-filter:
+blur(15px);
 
 
 box-shadow:
 
-0 15px 40px
-rgba(180,120,160,.2);
+0 20px 50px
+rgba(180,120,150,.2);
 
 
 cursor:pointer;
 
 
-transition:.4s;
+transition:.5s;
 
 
 }
@@ -382,13 +485,14 @@ scale(1.05);
 
 
 
+
 .ring-card img {
 
 
-width:200px;
+width:220px;
 
 
-height:200px;
+height:220px;
 
 
 object-fit:contain;
@@ -399,19 +503,10 @@ object-fit:contain;
 
 
 
-/* =========================
- Unlock Area
-========================= */
 
-
-#unlock-area {
-
-
-margin-top:30px;
-
-
-}
-
+/* =====================================
+   UNLOCK BOX
+===================================== */
 
 
 .unlock-box {
@@ -422,55 +517,16 @@ background:
 rgba(255,255,255,.85);
 
 
-padding:35px;
+padding:40px;
 
 
-border-radius:35px;
+border-radius:40px;
 
 
 box-shadow:
 
-0 20px 40px
-rgba(200,130,160,.25);
-
-
-}
-
-
-
-.unlock-box input {
-
-
-padding:15px;
-
-
-border-radius:30px;
-
-
-border:
-
-2px solid #ffc1da;
-
-
-font-size:18px;
-
-
-text-align:center;
-
-
-margin-top:15px;
-
-
-}
-
-
-
-/* =========================
- Ring Box
-========================= */
-
-
-#ring-box-area {
+0 20px 50px
+rgba(180,120,150,.2);
 
 
 margin-top:30px;
@@ -480,32 +536,62 @@ margin-top:30px;
 
 
 
-.ring-box {
+.unlock-box input {
 
 
-width:250px;
+padding:15px 25px;
 
 
-animation:
+border-radius:40px;
 
-boxAppear 1s;
+
+border:
+
+2px solid #f5b4d0;
+
+
+font-size:18px;
+
+
+text-align:center;
 
 
 }
 
 
 
-@keyframes boxAppear {
+
+
+/* =====================================
+   RING OPENING
+===================================== */
+
+
+.ring-opening {
+
+
+animation:
+
+appear 1s ease;
+
+
+}
+
+
+
+@keyframes appear {
 
 
 from {
 
 
-transform:scale(0)
-rotateY(180deg);
-
-
 opacity:0;
+
+
+transform:
+
+scale(.7)
+translateY(50px);
 
 
 }
@@ -514,61 +600,15 @@ opacity:0;
 to {
 
 
-transform:scale(1);
-
-
 opacity:1;
 
 
-}
+transform:
+
+scale(1);
 
 
 }
-
-
-
-/* =========================
- Ring Scene
-========================= */
-
-
-.scene-box {
-
-
-background:
-
-rgba(255,255,255,.85);
-
-
-padding:35px;
-
-
-border-radius:40px;
-
-
-max-width:600px;
-
-
-box-shadow:
-
-0 20px 50px
-rgba(180,120,160,.25);
-
-
-}
-
-
-
-.scene-box img {
-
-
-width:90%;
-
-
-max-width:450px;
-
-
-border-radius:30px;
 
 
 }
@@ -576,15 +616,108 @@ border-radius:30px;
 
 
 
-/* =========================
- Love Letter
-========================= */
+
+.ring-box {
+
+
+width:250px;
+
+
+}
+
+
+
+.ring-box-open {
+
+
+width:260px;
+
+
+animation:
+
+openBox 1s;
+
+
+}
+
+
+
+@keyframes openBox {
+
+
+50% {
+
+
+transform:
+
+rotateX(25deg)
+scale(1.1);
+
+
+}
+
+
+}
+
+
+
+
+.ring-display {
+
+
+width:180px;
+
+
+margin:25px;
+
+
+animation:
+
+ringFloat 2s infinite;
+
+
+}
+
+
+
+
+@keyframes ringFloat {
+
+
+50% {
+
+
+transform:
+
+translateY(-20px);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+/* =====================================
+   LETTER
+===================================== */
 
 
 .letter-container {
 
 
-position:relative;
+display:flex;
+
+
+flex-direction:column;
+
+
+align-items:center;
 
 
 }
@@ -607,19 +740,22 @@ transition:.5s;
 
 
 
+.envelope:hover {
+
+
+transform:
+
+scale(1.1);
+
+
+}
+
+
+
 .heart-sparkle {
 
 
-position:absolute;
-
-
 width:120px;
-
-
-top:-40px;
-
-
-right:-50px;
 
 
 animation:
@@ -653,9 +789,6 @@ rotate(10deg);
 .letter-content {
 
 
-display:none;
-
-
 background:
 
 rgba(255,255,255,.9);
@@ -667,17 +800,38 @@ padding:40px;
 border-radius:40px;
 
 
-max-width:650px;
+max-width:700px;
+
+
+box-shadow:
+
+0 20px 50px
+rgba(180,120,150,.2);
 
 
 }
 
 
 
-.open-letter {
+.hidden {
 
 
-width:300px;
+display:none;
+
+
+}
+
+
+
+.letter-show {
+
+
+display:block;
+
+
+animation:
+
+appear 1.5s;
 
 
 }
@@ -691,6 +845,13 @@ width:300px;
 margin-top:30px;
 
 
+}
+
+
+
+.languages p {
+
+
 font-size:22px;
 
 
@@ -700,52 +861,17 @@ font-size:22px;
 
 
 
-/* =========================
- Surprise Video
-========================= */
 
 
-.video-wrapper {
-
-
-width:min(850px,90%);
-
-
-border-radius:40px;
-
-
-overflow:hidden;
-
-
-box-shadow:
-
-0 20px 50px
-rgba(200,130,170,.3);
-
-
-}
-
-
-
-.video-wrapper video {
-
-
-width:100%;
-
-
-}
-
-
-
-/* =========================
- Ending
-========================= */
+/* =====================================
+   ENDING
+===================================== */
 
 
 .ending-image {
 
 
-width:min(700px,90%);
+width:min(750px,90%);
 
 
 border-radius:40px;
@@ -753,8 +879,8 @@ border-radius:40px;
 
 box-shadow:
 
-0 20px 50px
-rgba(200,130,170,.3);
+0 25px 60px
+rgba(180,120,150,.3);
 
 
 }
@@ -762,71 +888,142 @@ rgba(200,130,170,.3);
 
 
 
-/* =========================
- Mobile
-========================= */
+
+/* =====================================
+   MOBILE
+===================================== */
 
 
 @media(max-width:700px){
 
 
-.ring-card {
-
-
-width:90%;
-
-
-}
-
-
 h1 {
 
-
-font-size:35px;
-
+font-size:38px;
 
 }
 
 
 p {
 
-
 font-size:17px;
 
+}
+
+
+.ring-card {
+
+width:90%;
 
 }
 
 
+button {
+
+font-size:16px;
 
 }
 
-/* =================================
-   RING OPENING EXPERIENCE
-================================= */
+
+}
+
+/* =====================================
+   RING CEREMONY EFFECT
+===================================== */
 
 
-.ring-opening {
+.scene-box {
+
+
+display:flex;
+
+
+flex-direction:column;
+
+
+align-items:center;
+
+
+justify-content:center;
+
+
+background:
+
+rgba(255,255,255,.85);
+
+
+padding:40px;
+
+
+border-radius:50px;
+
+
+box-shadow:
+
+0 25px 70px
+rgba(200,130,160,.25);
 
 
 animation:
 
-ringAppear 1.2s ease;
+appear 1s ease;
+
 
 }
 
 
 
-@keyframes ringAppear {
+
+.scene-box img {
+
+
+max-width:90%;
+
+
+}
+
+
+
+
+.ring-message {
+
+
+margin-top:30px;
+
+
+padding:25px;
+
+
+border-radius:30px;
+
+
+background:
+
+rgba(255,240,247,.8);
+
+
+animation:
+
+messageAppear 2s ease;
+
+
+}
+
+
+
+
+@keyframes messageAppear{
 
 
 from{
 
+
 opacity:0;
+
 
 transform:
 
-scale(.3)
-translateY(50px);
+translateY(40px);
 
 
 }
@@ -834,11 +1031,12 @@ translateY(50px);
 
 to{
 
+
 opacity:1;
+
 
 transform:
 
-scale(1)
 translateY(0);
 
 
@@ -853,16 +1051,31 @@ translateY(0);
 .ring-box {
 
 
-width:250px;
+animation:
 
-
-max-width:80%;
-
-
-cursor:pointer;
+boxFloat 3s infinite ease-in-out;
 
 
 }
+
+
+
+@keyframes boxFloat{
+
+
+50%{
+
+
+transform:
+
+translateY(-12px);
+
+
+}
+
+
+}
+
 
 
 
@@ -871,7 +1084,7 @@ cursor:pointer;
 
 animation:
 
-boxOpen 1s;
+boxOpen 1.5s ease;
 
 
 }
@@ -883,32 +1096,30 @@ boxOpen 1s;
 
 0%{
 
+
 transform:
 
-rotateX(0deg)
-scale(.8);
+scale(.5)
+rotateX(60deg);
+
+
+opacity:0;
 
 
 }
 
-
-50%{
-
-transform:
-
-rotateX(25deg)
-scale(1.05);
-
-
-}
 
 
 100%{
 
+
 transform:
 
-rotateX(0deg)
-scale(1);
+scale(1)
+rotateX(0);
+
+
+opacity:1;
 
 
 }
@@ -923,29 +1134,37 @@ scale(1);
 .ring-display {
 
 
-width:180px;
+filter:
 
-
-margin:20px auto;
+drop-shadow(
+0 20px 20px
+rgba(200,150,100,.3)
+);
 
 
 animation:
 
-ringFloat 2s infinite ease-in-out;
+ringReveal 2s infinite ease-in-out;
 
 
 }
 
 
 
-@keyframes ringFloat{
+
+@keyframes ringReveal{
 
 
-0%,100%{
+0%{
+
 
 transform:
 
-translateY(0);
+translateY(20px)
+scale(.8);
+
+
+opacity:.5;
 
 
 }
@@ -953,9 +1172,30 @@ translateY(0);
 
 50%{
 
+
 transform:
 
-translateY(-20px);
+translateY(-20px)
+scale(1.1);
+
+
+opacity:1;
+
+
+}
+
+
+
+100%{
+
+
+transform:
+
+translateY(20px)
+scale(.8);
+
+
+opacity:.5;
 
 
 }
@@ -965,20 +1205,79 @@ translateY(-20px);
 
 
 
+
+
+.scene-image {
+
+
+margin-top:30px;
+
+
+border-radius:35px;
+
+
+animation:
+
+sceneAppear 2s ease;
+
+
+}
+
+
+
+@keyframes sceneAppear{
+
+
+from{
+
+
+opacity:0;
+
+
+transform:
+
+scale(.9);
+
+
+}
+
+
+to{
+
+
+opacity:1;
+
+
+transform:
+
+scale(1);
+
+
+}
+
+
+}
+
+
+
+/* Sparkles */
 
 
 .sparkle {
 
 
-position:absolute;
-
-
 font-size:35px;
+
+
+display:inline-block;
 
 
 animation:
 
-sparkleMove 2s infinite;
+sparkleMove 1.5s infinite;
+
+
+margin:10px;
 
 
 }
@@ -988,38 +1287,13 @@ sparkleMove 2s infinite;
 @keyframes sparkleMove{
 
 
-0%{
-
-opacity:0;
-
-transform:
-
-scale(0);
-
-
-}
-
-
 50%{
 
-opacity:1;
-
 
 transform:
 
-scale(1.3);
-
-
-}
-
-
-100%{
-
-opacity:0;
-
-transform:
-
-scale(0);
+translateY(-15px)
+rotate(20deg);
 
 
 }
@@ -1027,42 +1301,32 @@ scale(0);
 
 }
 
+/* =====================================
+   LOVE LETTER PREMIUM EFFECT
+===================================== */
 
 
-.ring-message {
+.letter-container {
 
 
 animation:
 
-fadeText 2s;
+letterFloat 4s infinite ease-in-out;
 
 
 }
 
 
 
-@keyframes fadeText{
+@keyframes letterFloat {
 
 
-from{
+50% {
 
-opacity:0;
 
 transform:
 
-translateY(30px);
-
-
-}
-
-
-to{
-
-opacity:1;
-
-transform:
-
-translateY(0);
+translateY(-15px);
 
 
 }
@@ -1070,46 +1334,35 @@ translateY(0);
 
 }
 
-/* ==========================
-   LETTER ANIMATION
-========================== */
-
-
-.hidden {
-
-display:none;
-
-}
 
 
 
-.letter-show {
 
-
-display:block;
+.open-letter {
 
 
 animation:
 
-letterAppear 1.5s ease;
+letterOpen 1.5s ease;
 
 
 }
 
 
 
-
-@keyframes letterAppear {
+@keyframes letterOpen {
 
 
 from {
 
+
 opacity:0;
+
 
 transform:
 
-translateY(50px)
-scale(.8);
+rotateY(90deg)
+scale(.7);
 
 
 }
@@ -1123,7 +1376,7 @@ opacity:1;
 
 transform:
 
-translateY(0)
+rotateY(0)
 scale(1);
 
 
@@ -1136,41 +1389,113 @@ scale(1);
 
 
 
-.typing-text {
+
+.heart-animation {
 
 
-max-width:500px;
+position:relative;
 
 
-margin:auto;
+height:120px;
 
 
 }
 
 
 
-.open-letter {
+
+.heart-animation span {
+
+
+position:absolute;
+
+
+font-size:35px;
 
 
 animation:
 
-letterFloat 3s infinite ease-in-out;
+heartFly 3s infinite;
 
 
 }
 
 
 
+.heart-animation span:nth-child(1){
 
-@keyframes letterFloat {
+
+left:20%;
+
+
+}
+
+
+
+.heart-animation span:nth-child(2){
+
+
+left:50%;
+
+
+animation-delay:.5s;
+
+
+}
+
+
+
+.heart-animation span:nth-child(3){
+
+
+left:80%;
+
+
+animation-delay:1s;
+
+
+}
+
+
+
+@keyframes heartFly {
+
+
+0% {
+
+
+bottom:0;
+
+
+opacity:0;
+
+
+}
+
 
 
 50% {
 
 
+opacity:1;
+
+
 transform:
 
-translateY(-10px);
+translateY(-40px);
+
+
+}
+
+
+
+100% {
+
+
+bottom:100px;
+
+
+opacity:0;
 
 
 }
@@ -1180,32 +1505,99 @@ translateY(-10px);
 
 
 
-.languages p {
+
+
+
+.fade-language p {
+
+
+opacity:0;
 
 
 animation:
 
-fadeLanguage 1s;
+languageShow 1s forwards;
 
 
 }
 
 
 
-@keyframes fadeLanguage {
+.fade-language p:nth-child(1){
+
+animation-delay:.2s;
+
+}
+
+
+.fade-language p:nth-child(2){
+
+animation-delay:.4s;
+
+}
+
+
+.fade-language p:nth-child(3){
+
+animation-delay:.6s;
+
+}
+
+
+.fade-language p:nth-child(4){
+
+animation-delay:.8s;
+
+}
+
+
+.fade-language p:nth-child(5){
+
+animation-delay:1s;
+
+}
+
+
+.fade-language p:nth-child(6){
+
+animation-delay:1.2s;
+
+}
+
+
+.fade-language p:nth-child(7){
+
+animation-delay:1.4s;
+
+}
+
+
+.fade-language p:nth-child(8){
+
+animation-delay:1.6s;
+
+}
+
+
+
+
+
+@keyframes languageShow {
 
 
 from {
+
 
 opacity:0;
 
 
 transform:
 
-translateX(-30px);
+translateX(-50px);
 
 
 }
+
 
 
 to {
@@ -1221,5 +1613,343 @@ translateX(0);
 
 }
 
+
+}
+
+/* =====================================
+   LOADING SCREEN
+===================================== */
+
+
+#loader {
+
+
+position:fixed;
+
+
+top:0;
+
+
+left:0;
+
+
+width:100%;
+
+
+height:100%;
+
+
+background:
+
+linear-gradient(
+135deg,
+#fff1f7,
+#fff8ef
+);
+
+
+display:flex;
+
+
+flex-direction:column;
+
+
+justify-content:center;
+
+
+align-items:center;
+
+
+z-index:9999;
+
+
+transition:
+
+opacity 1s;
+
+
+}
+
+
+
+
+.loader-heart {
+
+
+font-size:80px;
+
+
+animation:
+
+loaderPulse 1.5s infinite;
+
+
+}
+
+
+
+
+@keyframes loaderPulse {
+
+
+50% {
+
+
+transform:
+
+scale(1.2);
+
+
+}
+
+
+}
+
+
+
+#loader p {
+
+
+font-size:22px;
+
+
+}
+
+body {
+
+
+animation:
+
+pageEnter .8s ease;
+
+
+}
+
+
+
+@keyframes pageEnter {
+
+
+from {
+
+
+opacity:0;
+
+
+transform:
+
+translateY(20px);
+
+
+}
+
+
+
+to {
+
+
+opacity:1;
+
+
+transform:
+
+translateY(0);
+
+
+}
+
+
+}
+
+/* =====================================
+   CENTER EVERYTHING - FINAL POLISH
+===================================== */
+
+
+.ring-page,
+.letter-page,
+.secret-page,
+.ending-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+}
+
+
+
+/* Main containers */
+
+.ring-container,
+.ring-choice,
+.letter-container,
+.letter-content,
+.scene-box,
+.ring-message,
+.languages {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+}
+
+
+
+/* Ring area */
+
+.scene-box {
+
+    width: min(90%, 700px);
+
+    margin: 20px auto;
+
+}
+
+
+
+.ring-display {
+
+    width: min(300px, 70vw);
+
+    margin: 20px auto;
+
+    display: block;
+
+}
+
+
+
+.ring-box-open {
+
+    width: min(350px, 80vw);
+
+    margin: 20px auto;
+
+    display: block;
+
+}
+
+
+
+.scene-image {
+
+    width: min(700px, 90vw);
+
+    margin: 30px auto;
+
+    display: block;
+
+    border-radius: 30px;
+
+}
+
+
+
+
+/* Text box */
+
+.ring-message {
+
+    max-width: 600px;
+
+    margin: 30px auto;
+
+    line-height: 1.8;
+
+}
+
+
+
+.ring-message h2 {
+
+    text-align: center;
+
+}
+
+
+
+.ring-message p {
+
+    text-align: center;
+
+}
+
+
+
+
+/* Love letter */
+
+.typing-text {
+
+    max-width: 650px;
+
+    margin: 20px auto;
+
+    text-align: center;
+
+    line-height: 1.8;
+
+}
+
+
+
+#loveText {
+
+    white-space: pre-line;
+
+    text-align: center;
+
+}
+
+
+
+
+.languages {
+
+    width: 100%;
+
+    margin-top: 30px;
+
+}
+
+
+
+.languages p {
+
+    text-align: center;
+
+    margin: 12px;
+
+}
+
+
+
+
+
+/* Buttons */
+
+button {
+
+    margin: 20px auto;
+
+    display: block;
 
 }

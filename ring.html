@@ -5,19 +5,17 @@
 
 <head>
 
-
 <meta charset="UTF-8">
-
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 <title>
-Our Promise Rings 💍
+Choose Our Ring 💍
 </title>
 
 
-<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="style.css">
 
 
 </head>
@@ -25,6 +23,19 @@ Our Promise Rings 💍
 
 
 <body>
+
+<div id="loader">
+
+<div class="loader-heart">
+💍
+</div>
+
+<p>
+Preparing our story...
+❤️
+</p>
+
+</div>
 
 
 
@@ -36,7 +47,11 @@ Our Promise Rings 💍
 
 
 
+
 <div id="floating-container"></div>
+
+
+
 
 
 
@@ -45,21 +60,25 @@ Our Promise Rings 💍
 
 
 
+
+
 <h1>
-Our Promise Rings 💍
+
+Choose Our Ring 💍
+
 </h1>
 
 
 
-<h2>
-28 April
-</h2>
-
-
 
 <p>
-Two hearts, one promise
+
+Every ring has a story...
+
 </p>
+
+
+
 
 
 
@@ -68,29 +87,40 @@ Two hearts, one promise
 
 
 
-<!-- THUM GIVES PHUNG -->
 
-<div 
+
+<!-- Thum gives Phung -->
+
+<div
+
 class="ring-card"
+
 onclick="chooseThumGive()">
 
 
 
-<img 
-src="./images/rings/ring-box-closed.png"
-alt="Thum gives ring">
+<img
+
+src="./images/rings/ring-phung.png"
+
+alt="Ring for Phung">
 
 
 
 <h2>
-💍 Thum gives ring to Phung
+
+Thum ❤️ Phung
+
 </h2>
 
 
 
 <p>
-A promise from Thum to Phung
+
+A ring from Thum to Phung
+
 </p>
+
 
 
 </div>
@@ -99,29 +129,40 @@ A promise from Thum to Phung
 
 
 
-<!-- PHUNG GIVES THUM -->
 
 
-<div 
+
+<!-- Phung gives Thum -->
+
+
+<div
+
 class="ring-card"
+
 onclick="choosePhungGive()">
 
 
 
-<img 
-src="./images/rings/ring-box-closed.png"
-alt="Phung gives ring">
+<img
+
+src="./images/rings/ring-thum.png"
+
+alt="Ring for Thum">
 
 
 
 <h2>
-💎 Phung gives ring to Thum
+
+Phung ❤️ Thum
+
 </h2>
 
 
 
 <p>
-A promise from Phung to Thum
+
+A ring from Phung to Thum
+
 </p>
 
 
@@ -130,44 +171,75 @@ A promise from Phung to Thum
 
 
 
-</div>
 
-
-
-
-<!-- Password / Story Area -->
-
-<div id="unlock-area"></div>
-
-
-
-
-<!-- Ring Box Animation Area -->
-
-<div id="ring-box-area">
-
-<div class="ring-light"></div>
 
 </div>
 
 
 
 
-<!-- Continue Button -->
+
+
+
+<!-- Password Area -->
+
+
+<div
+
+id="unlock-area">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Ring Reveal Area -->
+
+
+<div
+id="ring-box-area">
+
+<div class="ring-intro">
+
+<p>
+Your special moment is waiting... 💍
+</p>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Next Button Hidden -->
 
 <button
 
 id="nextLetter"
 
-onclick="goLetter()"
+style="display:none"
 
-style="display:none;">
+onclick="goLetter()">
 
 
-💌 Open Our Letter
+
+💌 Open Love Letter
+
 
 
 </button>
+
+
+
 
 
 
@@ -175,7 +247,11 @@ style="display:none;">
 
 
 
-<script src="./script.js"></script>
+
+
+
+
+<script src="script.js"></script>
 
 
 

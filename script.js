@@ -9,6 +9,10 @@
 // MUSIC SYSTEM
 // =====================================
 
+// =====================================
+// CONTINUOUS MUSIC SYSTEM
+// =====================================
+
 
 const bgMusic =
 document.getElementById("bgMusic");
@@ -16,27 +20,85 @@ document.getElementById("bgMusic");
 
 if(bgMusic){
 
-    bgMusic.volume = 0.35;
+
+bgMusic.volume = 0.35;
 
 
-    document.addEventListener(
-        "click",
-        ()=>{
+// Continue previous time
 
-            bgMusic.play()
-            .catch(()=>{});
+const savedTime =
+localStorage.getItem("musicTime");
 
-        },
-        {once:true}
-    );
+
+if(savedTime){
+
+bgMusic.currentTime =
+parseFloat(savedTime);
+
+}
+
+
+
+// Save music position
+
+setInterval(()=>{
+
+
+localStorage.setItem(
+"musicTime",
+bgMusic.currentTime
+);
+
+
+},1000);
+
+
+
+
+// Play after interaction
+
+document.addEventListener(
+"click",
+()=>{
+
+
+bgMusic.play()
+.catch(()=>{});
+
+
+},
+{
+once:true
+}
+);
+
+
+
+document.addEventListener(
+"touchstart",
+()=>{
+
+
+bgMusic.play()
+.catch(()=>{});
+
+
+},
+{
+once:true
+}
+);
+
+
 
 }
 
 
 
 
+
 // =====================================
-// FLOATING HEART FLOWER STAR SYSTEM
+// FLOATING HEART FLOWER STAR
 // =====================================
 
 
@@ -49,14 +111,15 @@ document.getElementById(
 
 const floatingObjects = [
 
-"🌸",
 "❤️",
+"🌸",
 "✨",
 "⭐",
 "💗",
 "🌺"
 
 ];
+
 
 
 
@@ -70,6 +133,7 @@ return;
 
 const item =
 document.createElement("div");
+
 
 
 item.className =
@@ -96,7 +160,7 @@ Math.random()*100+"%";
 item.style.fontSize =
 (
 20+
-Math.random()*25
+Math.random()*30
 )
 +"px";
 
@@ -128,8 +192,9 @@ item.remove();
 
 setInterval(
 createFloating,
-400
+500
 );
+
 
 
 
@@ -151,14 +216,12 @@ window.location.href =
 
 
 
-
 function goLetter(){
 
 window.location.href =
 "love-letter.html";
 
 }
-
 
 
 
@@ -171,7 +234,6 @@ window.location.href =
 
 
 
-
 function goEnding(){
 
 window.location.href =
@@ -181,11 +243,14 @@ window.location.href =
 
 
 
-
 function restartStory(){
 
 
-localStorage.clear();
+localStorage.removeItem("musicTime");
+
+localStorage.removeItem("thumUnlocked");
+
+localStorage.removeItem("phungUnlocked");
 
 
 window.location.href =
@@ -193,6 +258,8 @@ window.location.href =
 
 
 }
+
+
 
 
 
@@ -207,7 +274,6 @@ window.location.href =
 function chooseThumGive(){
 
 
-
 const area =
 document.getElementById(
 "unlock-area"
@@ -215,15 +281,24 @@ document.getElementById(
 
 
 
-area.innerHTML = `
+if(!area)
+return;
 
+
+
+area.innerHTML = `
 
 <div class="unlock-box">
 
 
 <h2>
-💍 Thum gives ring to Phung
+👨 Thum ❤️ Phung
 </h2>
+
+
+<p>
+Thum gives this ring to Phung 💍
+</p>
 
 
 <p>
@@ -243,17 +318,14 @@ placeholder="DD/MM/YYYY">
 
 <button onclick="unlockThum()">
 
-Unlock
+Unlock Ring
 
 </button>
 
 
 </div>
 
-
 `;
-
-
 
 }
 
@@ -264,11 +336,15 @@ Unlock
 function choosePhungGive(){
 
 
-
 const area =
 document.getElementById(
 "unlock-area"
 );
+
+
+
+if(!area)
+return;
 
 
 
@@ -279,13 +355,19 @@ area.innerHTML = `
 
 
 <h2>
-💎 Phung gives ring to Thum
+👩 Phung ❤️ Thum
 </h2>
+
+
+<p>
+Phung gives this ring to Thum 💍
+</p>
 
 
 <p>
 Enter secret code
 </p>
+
 
 
 <input
@@ -300,7 +382,7 @@ placeholder="DD/MM/YYYY">
 
 <button onclick="unlockPhung()">
 
-Unlock
+Unlock Ring
 
 </button>
 
@@ -310,16 +392,16 @@ Unlock
 
 `;
 
-
-
 }
 
 
 
 
 
+
+
 // =====================================
-// PASSWORD CHECK
+// PASSWORD SYSTEM
 // =====================================
 
 
@@ -335,7 +417,10 @@ document.getElementById(
 
 
 
+// Thum unlocks ring for Phung
+
 if(code==="30/05/1991"){
+
 
 
 localStorage.setItem(
@@ -357,15 +442,17 @@ else{
 
 
 alert(
-"💗 Secret code incorrect"
+"💗 Incorrect secret code"
 );
 
 
 }
 
 
-
 }
+
+
+
 
 
 
@@ -381,7 +468,10 @@ document.getElementById(
 
 
 
+// Phung unlocks ring for Thum
+
 if(code==="04/07/1999"){
+
 
 
 localStorage.setItem(
@@ -403,7 +493,7 @@ else{
 
 
 alert(
-"💗 Secret code incorrect"
+"💗 Incorrect secret code"
 );
 
 
@@ -417,9 +507,16 @@ alert(
 
 
 
+
 // =====================================
 // OPEN RING BOX
 // =====================================
+
+
+
+let currentRingMessage = "";
+
+
 
 
 
@@ -440,8 +537,9 @@ return;
 
 
 let ringImage;
+
 let sceneImage;
-let message;
+
 
 
 
@@ -456,21 +554,22 @@ sceneImage =
 "./images/scenes/ring-thum-to-phung.png";
 
 
-message =
+currentRingMessage = `
 
-`
 <h2>
 Thum ❤️ Phung
 </h2>
 
-<p>
-Thum gives this ring to Phung 💍
-</p>
 
 <p>
-"From this day,
-I choose you forever."
+This ring is my promise to you 💍
 </p>
+
+
+<p>
+I choose you today and forever.
+</p>
+
 `;
 
 
@@ -491,26 +590,30 @@ sceneImage =
 "./images/scenes/ring-phung-to-thum.png";
 
 
-message =
+currentRingMessage = `
 
-`
+
 <h2>
 Phung ❤️ Thum
 </h2>
 
-<p>
-Phung gives this ring to Thum 💍
-</p>
 
 <p>
-"You are my home."
+This ring carries my love for you 💍
 </p>
+
+
+<p>
+You are my home forever.
+</p>
+
 
 `;
 
 
 
 }
+
 
 
 
@@ -531,10 +634,15 @@ src="./images/rings/ring-box-closed.png">
 <br>
 
 
-<button onclick="showOpenedRing('${ringImage}','${sceneImage}')">
+<button
+
+onclick="showOpenedRing(
+'${ringImage}',
+'${sceneImage}'
+)">
 
 
-🎁 Open The Ring Box
+🎁 Open Ring Box
 
 
 </button>
@@ -547,11 +655,9 @@ src="./images/rings/ring-box-closed.png">
 
 
 
-window.currentRingMessage =
-message;
-
-
 }
+
+
 
 
 
@@ -570,27 +676,40 @@ document.getElementById(
 
 
 
+if(!area)
+return;
+
+
+
 area.innerHTML = `
 
 
 <div class="scene-box ring-opening">
 
 
-
 <h2>
-✨ A special gift for you ✨
+✨ A Special Moment ✨
 </h2>
 
 
 
-<div>
+<div class="sparkles">
 
-<span class="sparkle">✨</span>
+<span class="sparkle">
+✨
+</span>
 
-<span class="sparkle">💗</span>
+<span class="sparkle">
+💗
+</span>
 
-<span class="sparkle">🌸</span>
+<span class="sparkle">
+🌸
+</span>
 
+<span class="sparkle">
+⭐
+</span>
 
 </div>
 
@@ -619,9 +738,7 @@ src="${ringImage}">
 
 <div class="ring-message">
 
-
-${window.currentRingMessage}
-
+${currentRingMessage}
 
 </div>
 
@@ -630,6 +747,8 @@ ${window.currentRingMessage}
 
 
 <img
+
+class="scene-image"
 
 src="${sceneImage}">
 
@@ -650,13 +769,16 @@ checkUnlock();
 
 
 
+
+
 // =====================================
-// UNLOCK NEXT PAGE
+// UNLOCK LOVE LETTER
 // =====================================
 
 
 
 function checkUnlock(){
+
 
 
 const next =
@@ -681,19 +803,22 @@ localStorage.getItem(
 ){
 
 
+
 if(next){
+
 
 next.style.display =
 "inline-block";
 
+
+}
+
+
 }
 
 
 }
 
-
-
-}
 
 
 
@@ -701,12 +826,13 @@ next.style.display =
 
 
 // =====================================
-// LOVE LETTER OPEN
+// LOVE LETTER
 // =====================================
 
 
 
 function openLetter(){
+
 
 
 const envelope =
@@ -730,24 +856,25 @@ document.getElementById(
 
 
 
-if(!envelope || !content)
+if(
+!envelope ||
+!content ||
+!text
+)
+
 return;
 
 
-
-// Change envelope image
 
 envelope.src =
 "./images/envelope/letter-open.png";
 
 
 
-
-// Show letter
-
 content.classList.remove(
 "hidden"
 );
+
 
 
 content.classList.add(
@@ -757,19 +884,21 @@ content.classList.add(
 
 
 
-
 const message =
 
-`Thank you for being my happiness.
+`My dear Phung ❤️
 
-You are my favorite person,
-my safe place,
-and my beautiful memory.
+Thank you for every beautiful moment.
 
-I am grateful for every moment with you.
+You are my happiness,
+my smile,
+and my favorite person.
 
-I hope our story continues forever ❤️`;
+No matter where life takes us,
+I hope we continue writing
+our story together forever.
 
+With all my love 💍`;
 
 
 
@@ -778,7 +907,8 @@ let index = 0;
 
 
 
-text.innerHTML="";
+text.innerHTML = "";
+
 
 
 
@@ -788,7 +918,7 @@ function typing(){
 if(index < message.length){
 
 
-text.innerHTML +=
+text.textContent +=
 message[index];
 
 
@@ -815,44 +945,50 @@ typing();
 }
 
 
-const envelope =
+
+
+
+
+window.onload = function(){
+
+
+
+checkUnlock();
+
+
+
+const loader =
 document.getElementById(
-"envelopeImage"
+"loader"
 );
 
 
 
-const content =
-document.getElementById(
-"letterContent"
-);
+if(loader){
+
+
+setTimeout(()=>{
+
+
+loader.style.opacity="0";
+
+
+setTimeout(()=>{
+
+
+loader.style.display="none";
+
+
+},1000);
 
 
 
-if(!envelope || !content)
-return;
-
-
-
-envelope.src =
-"./images/envelope/letter-open.png";
-
-
-
-content.style.display =
-"block";
+},1200);
 
 
 
 }
 
-
-
-
-window.onload=function(){
-
-
-checkUnlock();
 
 
 };
