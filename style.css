@@ -1953,3 +1953,155 @@ button {
     display: block;
 
 }
+
+/* =====================================
+   MOBILE RESPONSIVE
+===================================== */
+
+@media (max-width: 768px){
+
+
+body{
+    overflow-x:hidden;
+}
+
+
+
+h1{
+    font-size:2rem;
+    text-align:center;
+}
+
+
+
+h2{
+    font-size:1.4rem;
+}
+
+
+
+p{
+    font-size:1rem;
+    text-align:center;
+}
+
+
+
+.opening-content,
+.ending-content,
+.letter-container,
+.gift-page,
+.ring-page{
+    width:90%;
+    margin:auto;
+}
+
+
+
+video{
+    width:100%;
+    height:auto;
+}
+
+
+
+.video-container,
+.video-wrapper{
+    width:100%;
+    max-width:100%;
+}
+
+
+
+button{
+
+    width:80%;
+    max-width:300px;
+
+    padding:15px;
+
+    font-size:1rem;
+
+}
+
+
+
+.ring-choice{
+
+    flex-direction:column;
+    align-items:center;
+
+}
+
+
+
+.ring-card{
+
+    width:90%;
+    margin-bottom:20px;
+
+}
+
+
+
+.ring-card img{
+
+    width:80%;
+    height:auto;
+
+}
+
+
+
+.scene-box img{
+
+    max-width:90%;
+    height:auto;
+
+}
+
+
+
+.ring-message{
+
+    width:90%;
+    margin:auto;
+    text-align:center;
+
+}
+
+
+
+.languages{
+
+    text-align:center;
+
+}
+
+
+
+.envelope{
+
+    width:80%;
+    max-width:300px;
+
+}
+
+
+
+.open-letter{
+
+    width:90%;
+}
+
+
+
+.ending-image{
+
+    width:90%;
+    height:auto;
+
+}
+
+
+}
